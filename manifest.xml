@@ -1,0 +1,21 @@
+<package>
+  <description brief="SpartonCompassIMU">
+
+     Sparton Digital Compass Dirver IMU output
+     GEDC-6 @ 115200 BPS 
+     ARHS-8 @ 115200 BPS
+
+  </description>
+  <author>Administrator</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/SpartonCompassIMU</url>
+  <depend package="geometry_msgs"/>
+  <depend package="std_msgs"/>
+  <depend package="rospy"/>
+  <depend package="tf"/>
+  <depend package="sensor_msgs"/>
+
+</package>
+
+
