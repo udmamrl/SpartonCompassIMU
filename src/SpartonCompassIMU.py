@@ -108,7 +108,7 @@ if __name__ == '__main__':
     myStr1='\r\n\r\nprinttrigger 0 set drop\r\n'
     myStr2='printmask gyrop_trigger accelp_trigger or quat_trigger or yawt_trigger or time_trigger or set drop\r\n'
         # set the number high to get lower update rate , the IMU data is 100Hz rate , the string is 130 byte with 10 bit/byte , the max sampling rate is 88Hz
-        # printmodulus=2 might give us 50Hz update rate ( I have no idea ) ,set printmodulus=1 should give you the max speed. ( with auto skiping )
+        # printmodulus=2 might give us around 40Hz update rate ,set printmodulus=1 should give you the max speed. ( with auto skiping )
     myStr_printmodulus=('printmodulus %i set drop\r\n' % D_Compassprintmodulus  )
     myStr3='printtrigger printmask set drop\r\n'
 
@@ -185,9 +185,9 @@ if __name__ == '__main__':
                                 #      0  1 mSec 2  3Ax  4Ay     5Az     5  7Gx  8Gy  9G    10 11YawT 1213w  14x   15y  16z
                                 #data='P:,878979,ap,-6.34,-22.46,1011.71,gp,0.00,0.00,-0.00,yt,342.53,q,0.98,-0.01,0.01,-0.15'
 
-                                Ax=float(fields[3])/1000. # convert to g/s from mg/s
-                                Ay=float(fields[4])/1000.
-                                Az=float(fields[5])/1000.
+                                Ax=float(fields[3])/1000.*9.81 # convert to m/s^2 from mg/s
+                                Ay=float(fields[4])/1000.*9.81
+                                Az=float(fields[5])/1000.*9.81
                                 Gx=float(fields[7]) * (math.pi/180.0) # convert to radians from degrees
                                 Gy=float(fields[8]) * (math.pi/180.0)
                                 Gz=float(fields[9]) * (math.pi/180.0)
